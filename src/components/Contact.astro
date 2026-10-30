@@ -1,0 +1,75 @@
+---
+import { site } from "../data/site";
+import Section from "./Section.astro";
+
+const { email, github, linkedin, resume } = site.links;
+const links = [
+  { label: "GitHub", href: github },
+  { label: "LinkedIn", href: linkedin },
+  { label: "Resume", href: resume },
+].filter((link) => link.href);
+---
+
+<Section id="contact" index="06" label="Contact">
+  <p class="font-display text-[clamp(3.5rem,11vw,9.5rem)] leading-[0.9] tracking-[-0.02em]">
+    Say <span class="italic">hello</span><span class="text-accent-text">.</span>
+  </p>
+
+  <p class="mt-6 max-w-[44ch] text-lg text-muted">
+    Open to roles, internships and interesting problems. The fastest way to reach me is email.
+  </p>
+
+  {
+    email && (
+      <div class="mt-10 flex flex-wrap items-baseline gap-x-5 gap-y-2">
+        <button
+          type="button"
+          data-copy={email}
+          class="group text-left font-display text-3xl break-all md:text-5xl"
+          aria-describedby="copy-status"
+        >
+          <span class="link-draw">{email}</span>
+        </button>
+        <span id="copy-status" data-copy-status class="font-mono text-xs text-muted" aria-live="polite">
+          Click to copy
+        </span>
+        <a href={`mailto:${email}`} class="link-draw font-mono text-xs text-accent-text">
+          or open mail ↗
+        </a>
+      </div>
+    )
+  }
+
+  <ul class="mt-14 flex flex-wrap gap-x-10 gap-y-3 font-mono text-sm">
+    {
+      links.map((link) => (
+        <li>
+          <a href={link.href} target="_blank" rel="noopener" class="link-draw">
+            {link.label} <span class="text-accent-text">↗</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</Section>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>("[data-copy]");
+  const status = document.querySelector<HTMLElement>("[data-copy-status]");
+  let timer = 0;
+
+  button?.addEventListener("click", async () => {
+    const email = button.dataset.copy ?? "";
+    try {
+      await navigator.clipboard.writeText(email);
+      if (status) status.textContent = "Copied ✓";
+    } catch {
+      location.href = `mailto:${email}`;
+      return;
+    }
+    clearTimeout(timer);
+    timer = window.setTimeout(() => {
+      if (status) status.textContent = "Click to copy";
+    }, 2000);
+  });
+</script>

@@ -1,0 +1,32 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../data/site";
+---
+
+<Base title={`Page not found · ${site.firstName} ${site.lastName}`}>
+  <main id="main" class="mx-auto flex min-h-[100svh] max-w-[1400px] flex-col justify-between px-5 py-8 md:px-10">
+    <p class="font-mono text-xs tracking-wide text-muted uppercase">
+      <span class="text-accent-text">404</span>&nbsp;&nbsp;/&nbsp;&nbsp;Page not found
+    </p>
+
+    <div>
+      <h1 class="font-display text-[clamp(3.5rem,12vw,10rem)] leading-[0.88] tracking-[-0.02em]">
+        <span class="block overflow-hidden pb-[0.06em]"><span class="rise">You have</span></span>
+        <span class="block overflow-hidden pb-[0.08em]"
+          ><span class="rise italic" style="animation-delay: 110ms">no enemies</span><span
+            class="rise text-accent-text"
+            style="animation-delay: 220ms">.</span
+          ></span
+        >
+      </h1>
+      <p class="fade-late mt-8 max-w-[40ch] text-xl text-muted md:text-2xl">
+        …and this page doesn't exist either.
+      </p>
+    </div>
+
+    <div class="fade-late flex flex-wrap items-end justify-between gap-6 font-mono text-xs text-muted">
+      <a href="/" class="link-draw text-fg">← Back home</a>
+      <p>Thors, <span class="italic">Vinland Saga</span></p>
+    </div>
+  </main>
+</Base>

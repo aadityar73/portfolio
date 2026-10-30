@@ -1,0 +1,22 @@
+---
+interface Props {
+  id: string;
+  index: string;
+  label: string;
+}
+
+const { id, index, label } = Astro.props;
+---
+
+<section id={id} class="mx-auto max-w-[1400px] px-5 md:px-10" aria-labelledby={`${id}-label`}>
+  <div class="grid grid-cols-1 gap-6 border-t border-line pt-6 pb-24 md:grid-cols-12 md:gap-10 md:pb-36">
+    <h2 id={`${id}-label`} class="font-mono text-xs tracking-wide text-muted uppercase md:col-span-3">
+      <span class="md:sticky md:top-24 md:inline-block">
+        <span class="text-accent-text">({index})</span>&nbsp;&nbsp;{label}
+      </span>
+    </h2>
+    <div class="md:col-span-9">
+      <slot />
+    </div>
+  </div>
+</section>

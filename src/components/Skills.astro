@@ -1,0 +1,54 @@
+---
+import * as simpleIcons from "simple-icons";
+import { skills } from "../data/site";
+import Section from "./Section.astro";
+
+type SimpleIcon = { title: string; slug: string; path: string };
+const allIcons = Object.values(simpleIcons) as SimpleIcon[];
+
+// Skill names that don't exactly match an icon's title in Simple Icons.
+const aliases: Record<string, string> = {
+  "express.js": "express",
+  "linux (ubuntu)": "ubuntu",
+  "claude code": "claude",
+};
+
+const findIcon = (name: string) => {
+  const key = name.toLowerCase();
+  const slug = aliases[key];
+  return allIcons.find((icon) => (slug ? icon.slug === slug : icon.title?.toLowerCase() === key));
+};
+---
+
+<Section id="skills" index="05" label="Toolbox">
+  <dl class="grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+    {
+      skills.map((group) => (
+        <div>
+          <dt class="mb-4 border-b border-line pb-3 font-mono text-xs tracking-wide text-muted uppercase">
+            {group.group}
+          </dt>
+          {group.items.map((item) => {
+            const icon = findIcon(item);
+            return (
+              <dd class="group flex items-center gap-3 py-1 text-lg">
+                {icon ? (
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="size-4 shrink-0 fill-current text-muted transition-colors duration-300 group-hover:text-accent-text"
+                    aria-hidden="true"
+                  >
+                    <path d={icon.path} />
+                  </svg>
+                ) : (
+                  <span class="size-4 shrink-0" aria-hidden="true" />
+                )}
+                {item}
+              </dd>
+            );
+          })}
+        </div>
+      ))
+    }
+  </dl>
+</Section>

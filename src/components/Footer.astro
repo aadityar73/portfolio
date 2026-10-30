@@ -1,0 +1,38 @@
+---
+import { site } from "../data/site";
+---
+
+<footer class="mx-auto max-w-[1400px] px-5 md:px-10">
+  <div
+    class="flex flex-col gap-6 border-t border-line py-8 font-mono text-xs text-muted md:flex-row md:items-center md:justify-between"
+  >
+    <p>
+      {`© ${new Date().getFullYear()} ${site.firstName} ${site.lastName}. Built with Astro & Tailwind.`}
+    </p>
+
+    <div class="flex items-center gap-6">
+      <span class="group relative inline-flex" tabindex="0" role="img" aria-label="Wings of Freedom">
+        <svg
+          viewBox="0 0 48 24"
+          class="h-4 w-8 text-muted transition-colors duration-300 group-hover:text-accent-text group-focus-visible:text-accent-text"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <g id="wing">
+            <path d="M23 18C18 16 10 12 2 4c7 4 14 7 21 10z"></path>
+            <path d="M23 19.5c-6-1-13-3-19-8 6 2.5 12 4 19 5.5z"></path>
+            <path d="M23 21c-5 0-11-1-16-4 5 1.5 10 2 16 2.2z"></path>
+          </g>
+          <use href="#wing" transform="translate(48 0) scale(-1 1)"></use>
+        </svg>
+        <span
+          class="pointer-events-none absolute bottom-full left-1/2 mb-3 -translate-x-1/2 translate-y-1 rounded bg-fg px-2.5 py-1.5 whitespace-nowrap text-bg opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100"
+        >
+          Shinzou wo Sasageyo
+        </span>
+      </span>
+
+      <a href="#top" class="link-draw hover:text-fg">Back to top ↑</a>
+    </div>
+  </div>
+</footer>

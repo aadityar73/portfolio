@@ -1,0 +1,29 @@
+---
+interface Props {
+  name: string;
+  src?: string;
+}
+
+const { name, src } = Astro.props;
+const initials = name
+  .split(/\s+/)
+  .filter((word) => /^[A-Z0-9]/.test(word))
+  .slice(0, 2)
+  .map((word) => word[0])
+  .join("");
+---
+
+{
+  src ? (
+    <span class="grid size-11 shrink-0 place-items-center overflow-hidden rounded-lg bg-[#f4f2ec] p-1 ring-1 ring-line sm:size-12">
+      <img src={src} alt="" width="48" height="48" loading="lazy" class="size-full object-contain" />
+    </span>
+  ) : (
+    <span
+      class="grid size-11 shrink-0 place-items-center rounded-lg bg-bg-raised font-display text-xl italic ring-1 ring-line sm:size-12"
+      aria-hidden="true"
+    >
+      {initials || name[0]}
+    </span>
+  )
+}
