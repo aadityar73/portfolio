@@ -25,11 +25,10 @@ export const site = {
   // A square image of at least 600×600 in /public with the name "/photo.png".
   photo: '', // TODO
 
-  // Written from your resume in plain words. Change anything that doesn't sound like you.
   about: [
-    "I'm a full-stack developer from Mumbai. Over the past year I interned at ShypBuddy and then Rock Solid Solutions, working on production web apps that people use every day.",
-    'The part I enjoy most is debugging. When a page is slow or an error keeps coming back, I [[keep digging until I find the real reason]]. Once, a 30-second timeout turned out not to be a slow query at all, but requests stuck waiting on a PHP session lock.',
-    "I finished my MCA at K. J. Somaiya Institute of Management in 2026. Now I'm looking for a full-time developer role where I can keep learning and keep fixing hard problems.",
+    "I'm a full-stack developer from Mumbai. I recently completed my MCA at K. J. Somaiya Institute of Management, and my experience so far has been in backend and full-stack development.",
+    'Over the past year I interned at ShypBuddy and then Rock Solid Solutions, which gave me [[hands-on exposure to live production systems]]. At ShypBuddy I built backend APIs and worked on the admin and reseller panels. At Rock Solid Solutions I worked on production issues around database performance and backend maintenance.',
+    'Now I want to build on that experience and keep growing as a developer.',
   ],
 
   // Links. Leave a value as "" to hide that link.
