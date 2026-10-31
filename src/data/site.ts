@@ -145,7 +145,7 @@ export const skills = [
     group: 'Backend & data',
     items: ['Node.js', 'Express.js', 'PostgreSQL', 'MongoDB'],
   },
-  { group: 'Frontend', items: ['Tailwind CSS', 'Astro'] },
+  { group: 'Frontend', items: ['Tailwind CSS'] },
   {
     group: 'DevOps & tools',
     items: [
