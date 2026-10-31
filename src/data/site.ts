@@ -26,7 +26,7 @@ export const site = {
   photo: '', // TODO
 
   about: [
-    "I'm a full-stack developer from Mumbai. I recently completed my MCA at K. J. Somaiya Institute of Management, and my experience so far has been in backend and full-stack development.",
+    "I'm a full-stack developer from Mumbai. I recently completed my MCA at K. J. Somaiya Institute of Management, and my experience so far has been in backend and full-stack development.",
     'Over the past year I interned at ShypBuddy and then Rock Solid Solutions, which gave me [[hands-on exposure to live production systems]]. At ShypBuddy I built backend APIs and worked on the admin and reseller panels. At Rock Solid Solutions I worked on production issues around database performance and backend maintenance.',
     'Now I want to build on that experience and keep growing as a developer.',
   ],
